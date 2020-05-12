@@ -8,6 +8,8 @@ To connect to another Blue Pill, connect the pins on the debug header straight a
 
 There are actually two serial ports that show up from the device. One is for debugging and uploading code, and the other goes to a hardware serial port so you can use this as a USB-serial adapter at the same time. (TODO: figure out what pins these are.) You want the former, which is most likely the lower numbered one.
 
-To build the Black Magic firmware yourself, find the source code at https://github.com/fb39ca4/blackmagic, and build with the make option `PROBE_HOST=bluepill` The particular commit the binaries were built from here is:
+To build the Black Magic firmware yourself, find the source code at https://github.com/blacksphere/blackmagic, and build with the make option `PROBE_HOST=swlink`. To create a binary that does not depend on the DFU bootloader, replace `0x8002000` with `0x800000` in `src/platforms/swlink/Makefile.inc`
 
-https://github.com/fb39ca4/blackmagic/tree/5e0f4d8d8aa661b011bddad31ffee1115692e273
+The particular commit the binaries included here were built from is:
+
+https://github.com/blacksphere/blackmagic/commit/805464db23cf07f085d5042f46e01b4c9e7b62fd
